@@ -16,7 +16,10 @@ app.get("/",function(req,res){
     res.render("index",{info:["HELLO hell","hi ","idvuwjdvbinwlv"]});
 });
 
-app.post("");
+app.post("/",(req,res)=>
+{
+    
+});
 
 app.listen(process.env.PORT||3000,(req,res)=>
 {

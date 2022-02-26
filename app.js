@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const moongoose = require("mongoose");
 const { default: mongoose } = require("mongoose");
+const req = require("express/lib/request");
 
 moongoose.connect("mongodb+srv://admin-mukul:Test123@cluster0.tj2jy.mongodb.net/hacktu3",{ useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -63,14 +64,28 @@ app.get("/",(req,res)=>
     res.render("login");
 });
 
-app.get("/",function(req,res){
-    res.render("dashboard",{info:["HELLO hell","hi ","idvuwjdvbinwlv"]});
-});
 
 app.get("/my/:subject",function(req,res){
     res.render("subject",{info:req.params.subject});
 });
 
+app.post("/login",(req,res)=>{
+    const name=req.body.name;
+    const password=req.body.password;
+    userStudent.findOne({name:name, roll:password},(err,result)=>{
+        if(!err)
+        {
+            if(result)
+             res.render("dashboard",{info:result});
+            else
+             res.render("message",{info:"The User doesn't Exists"});
+        }
+        else
+        {
+            res.render("error");
+        }
+    });
+});
 
 app.listen(process.env.PORT||3000,(req,res)=>
 {

@@ -1,13 +1,12 @@
-html
+body
 {
-    margin: 0 15px;
-    background-color: #fdf3e3;
+    background-color: #24344c;
+    color:white;
 }
 
-/* Navbar */
-#topnav 
+.links
 {
-    background-color: #ffffff;
+    color:white;
 }
 
 #topnav  div
@@ -17,7 +16,7 @@ html
 
 #topnav div ul li a
 {
-    color: #272b6a;
+    color: white;
 }
 /* Navbar Ends */
 
@@ -25,10 +24,11 @@ html
 .admin,.images
 {
     padding:30px;
+    background-color: #24344c;
 }
 .admin
 {
-    background-color: #f9d000;
+    background-color: #24344c;
     color:#272b6a;
     font-weight: bold;
 }
@@ -75,9 +75,4 @@ html
       flex-direction: row;
       justify-content: space-evenly;
   }
-}
-
-.links
-{
-    color:black;
 }

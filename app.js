@@ -39,7 +39,8 @@ const attendace= new mongoose.Schema({
     name:String,
     subCode:String,
     min:Number,
-    current:Number
+    current:Number,
+    total:Number
 });
 
 const userStudent = mongoose.model("Student",Student);
@@ -47,17 +48,6 @@ const userTeacher = mongoose.model("Teachers",teacher);
 const Subject = mongoose.model("Subjects",subject);
 const Attendace = mongoose.model("Attendace",attendace);
 
-const Students=[
-    {
-        name:"shgdyif",
-        roll:"102003370",
-        branch:"uygdf",
-        email:"ndvi@jdgv.com"
-    },
-    {
-
-    }
-] 
 
 app.get("/",(req,res)=>
 {
@@ -65,7 +55,7 @@ app.get("/",(req,res)=>
 });
 
 
-app.get("/my/:subject",function(req,res){
+app.get("/:subject",function(req,res){
     res.render("subject",{info:req.params.subject});
 });
 

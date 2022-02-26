@@ -2,6 +2,7 @@ body
 {
     background-color: #24344c;
     color:white;
+    overflow-x: hidden;
 }
 
 .links

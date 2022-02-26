@@ -34,9 +34,17 @@ const teacher = new mongoose.Schema({
     code:String
 });
 
+const attendace= new mongoose.Schema({
+    name:String,
+    subCode:String,
+    min:Number,
+    current:Number
+});
+
 const userStudent = mongoose.model("Student",Student);
 const userTeacher = mongoose.model("Teachers",teacher);
 const Subject = mongoose.model("Subjects",subject);
+const Attendace = mongoose.model("Attendace",attendace);
 
 const Students=[
     {
@@ -48,20 +56,21 @@ const Students=[
     {
 
     }
-]
+] 
+
+app.get("/",(req,res)=>
+{
+    res.render("login");
+});
+
 app.get("/",function(req,res){
     res.render("dashboard",{info:["HELLO hell","hi ","idvuwjdvbinwlv"]});
 });
 
 app.get("/my/:subject",function(req,res){
-    console.log(req.params.subject);
+    res.render("subject",{info:req.params.subject});
 });
 
-app.post("/subject",(req,res)=>
-{
-    console.log(req.body.one);
-    console.log(req.body.two);
-});
 
 app.listen(process.env.PORT||3000,(req,res)=>
 {

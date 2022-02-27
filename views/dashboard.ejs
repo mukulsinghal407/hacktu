@@ -46,7 +46,8 @@
     </div>
     </div>
     <!-- images starts -->
-    <div class="row">
+    <form action="/my" method="post">
+     <div class="row">
         <div class="col-lg-2 col-md-2">
             <!-- <img src="./img/firstimg.png" height="90%" width="100%"alt="" srcset=""> 
             <div class="info">
@@ -71,7 +72,7 @@
                 </div>
             </div> -->
         </div>
-        <a class="links" href="/a">
+        <a class="links" href="/<%=info.name%>/a">
             <div class="col-lg-2 col-md-2">
             <img src="./img/backimg1.svg" height="90%" width="100%"alt="" srcset=""> 
             <div class="info">
@@ -85,7 +86,7 @@
             </div>
             </div>
         </a>
-        <a class="links" href="/b">
+        <a class="links" href="/<%=info.name%>/b">
             <div class="col-lg-2 col-md-2">
                 <img src="./img/backimg2.svg" height="90%" width="100%"alt="" srcset="">
                 <div class="info">
@@ -123,7 +124,8 @@
                 </div>
             </div> -->
         </div>
-    </div>
+     </div>
+    </form>
 </div>
 <!--Main Content Ends-->
 

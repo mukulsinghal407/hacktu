@@ -11,7 +11,7 @@ moongoose.connect("mongodb+srv://admin-mukul:Test123@cluster0.tj2jy.mongodb.net/
 //Setting things up
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 const Student=new mongoose.Schema({
@@ -55,8 +55,22 @@ app.get("/",(req,res)=>
 });
 
 
-app.get("/:subject",function(req,res){
-    res.render("subject",{info:req.params.subject});
+app.get("/:user/:subject",function(req,res){
+    const name=req.params.user;
+    Attendace.findOne({name:name},(err,result)=>{
+        if(!err)
+        {
+            console.log(result);
+            if(result)
+             res.render("subject",{info:result})
+            else 
+             res.render("message",{info:"Result Not found!!"});
+        }
+        else
+        {
+            res.render("error");
+        }
+    });
 });
 
 app.post("/login",(req,res)=>{
